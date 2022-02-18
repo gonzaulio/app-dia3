@@ -1,0 +1,86 @@
+<!-- <button class="btn btn-danger"> PRUEBA</button> -->
+
+<div class="container" style="background-color: rgb(10, 100, 99); padding: 10px; margin-top: 50px;">
+    <div class="container" style="text-align: center; color: white; padding: 10px;" >
+        <div class="row">
+            <div class="col">
+                Nombre
+            </div>
+            <div class="col">
+                País
+            </div>
+            <div class="col">
+                Código
+            </div>
+        </div>
+    
+        <div *ngIf="ciudades.length == 0; else hayArray"> 
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <ng-template #hayArray>
+            <ng-container *ngFor="let ciudad of ciudades; let i = index ">
+            
+                <div *ngIf="i % 2 == 0; else esImpar">
+
+                        <div class="row"  style="background-color: tomato ; border-radius: 20px; margin: 2px;">
+                            <div class="col" >
+                                {{ciudad.nombre}} 
+                            </div>
+                            <div class="col">
+                                {{ciudad.pais}} 
+                            </div>
+                            <div class="col">
+                                {{ciudad.codigo}}
+                            </div>
+                        </div>
+
+                </div>
+
+
+                <ng-template #esImpar>
+
+                    <div class="row"  style="background-color: rgb(42, 204, 240); border-radius: 20px; margin: 2px;">
+                        <div class="col" >
+                            {{ciudad.nombre}} 
+                        </div>
+                        <div class="col">
+                            {{ciudad.pais}} 
+                        </div>
+                        <div class="col">
+                            {{ciudad.codigo}} 
+                        </div>
+
+                    </div>
+
+                </ng-template>
+            
+
+            </ng-container>
+
+
+            
+        </ng-template>
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+<!-- <ul>
+    HOLA
+    <li>COMO</li>
+    <li>ESTAS</li>
+    <li>TU</li>
+</ul> -->
